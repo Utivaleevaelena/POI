@@ -1,0 +1,9 @@
+/* POI webfonts.
+   Brand originals are Adobe Fonts (not redistributable):
+     - Display / title  : Calluna (Jos Buivenga, exljbris, 2009) — warm humanist serif
+     - Supporting / UI   : Neuzeit Grotesk (Wilhelm Pischner, 1928/2000) — geometric grotesque
+   Substituted with the nearest Google Fonts matches until the licensed files are supplied:
+     - Calluna        -> Lora
+     - Neuzeit Grotesk-> Archivo
+*/
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Archivo:wght@400;500;600;700&display=swap');

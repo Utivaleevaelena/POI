@@ -1,0 +1,29 @@
+/* POI effects — the identity is flat and print-led: hard edges, hairline rules,
+   near-square corners. Shadows are used sparingly and softly, never glossy. */
+:root {
+  /* Corner radii — the system favours sharp rectangles; only pills/circles are round */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-pill: 999px;
+  --radius-full: 50%;
+
+  /* Borders */
+  --border-hairline: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-border-strong);
+  --border-ink: 1.5px solid var(--color-ink);
+
+  /* Shadows — minimal, warm-neutral */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(30, 31, 29, 0.06);
+  --shadow-md: 0 8px 24px rgba(30, 31, 29, 0.10);
+  --shadow-lg: 0 20px 60px rgba(30, 31, 29, 0.14);
+
+  /* Motion — calm, no bounce */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --dur-fast: 140ms; /* @kind other */
+  --dur-med: 240ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+}
+a { color: var(--color-ink); text-decoration: none; }
+a:hover { color: var(--poi-sky-dark); }

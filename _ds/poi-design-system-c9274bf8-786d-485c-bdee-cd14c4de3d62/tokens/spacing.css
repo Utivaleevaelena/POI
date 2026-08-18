@@ -1,0 +1,22 @@
+/* POI spacing & layout — 8px base, plus the identity's "module" clear-space unit.
+   Clear space around the logo = 2x (top/bottom), 1.5x (sides) of the module. */
+:root {
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --container-max: 1200px;
+  --container-wide: 1440px;
+  --gutter: 32px;
+
+  /* logo clear-space module (half the logo height) */
+  --logo-module: 0.5em;
+}

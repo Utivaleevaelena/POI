@@ -1,0 +1,44 @@
+/* POI colour system.
+   Palette derives from the identity's paper stocks (System Identyfikacji Wizualnej, 2019).
+   Values are the exact HEX specified in the manual. */
+:root {
+  /* --- Base palette --- */
+  --poi-ink: #1e1f1d;        /* Remake Midnight — primary dark */
+  --poi-oyster: #f2eadc;     /* Remake Oyster — warm cream */
+  --poi-hazel: #bb8f60;      /* Keykolor Hazel — camel / tan */
+  --poi-grape: #d3c2c3;      /* Crush Grape — mauve grey */
+  --poi-almond: #cf9f9f;     /* Crush Almond — dusty pink */
+  --poi-lightblue: #e0f1f5;  /* Burano Light Blue */
+  --poi-sky: #89c7cf;        /* Remake Sky — teal */
+  --poi-storm: #d7d8d5;      /* Popster Storm — cool light grey */
+  --poi-white: #ffffff;
+
+  /* Tints / shades used for states (derived, kept subtle & warm) */
+  --poi-ink-80: #4a4b49;
+  --poi-ink-60: #77817d;
+  --poi-hazel-dark: #a67c4f;
+  --poi-sky-dark: #6fb0b8;
+  --poi-hairline: rgba(30, 31, 29, 0.14);
+  --poi-hairline-strong: rgba(30, 31, 29, 0.28);
+
+  /* --- Semantic aliases --- */
+  --color-bg: var(--poi-oyster);
+  --color-bg-alt: var(--poi-white);
+  --color-surface: var(--poi-white);
+  --color-surface-sunken: var(--poi-storm);
+  --color-ink: var(--poi-ink);            /* primary text on light */
+  --color-ink-muted: var(--poi-ink-60);   /* secondary text */
+  --color-text-inverse: var(--poi-oyster);/* text on dark */
+  --color-accent: var(--poi-sky);         /* primary accent (water/teal) */
+  --color-accent-warm: var(--poi-hazel);  /* secondary accent (earth) */
+  --color-border: var(--poi-hairline);
+  --color-border-strong: var(--poi-hairline-strong);
+  --color-focus: var(--poi-sky-dark);
+
+  /* Editorial section backgrounds (rotate for material variety) */
+  --section-1: var(--poi-oyster);
+  --section-2: var(--poi-sky);
+  --section-3: var(--poi-almond);
+  --section-4: var(--poi-hazel);
+  --section-5: var(--poi-ink);
+}
