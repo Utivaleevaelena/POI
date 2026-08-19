@@ -53,6 +53,12 @@
       #dc-root h1 { font-size: 32px !important; line-height: 1.12 !important; }
       #dc-root h2 { font-size: 26px !important; }
       #dc-root [style*="font-size: clamp(38px"] { font-size: 32px !important; }
+      /* iOS-proof fallback: give photo blocks a definite vw height (WebKit
+         always resolves vw), so a mobile Safari that mishandles the ratio box
+         still can't let the image grow to full height. Content width on mobile
+         is 100vw minus the 20px side padding on each side. */
+      #dc-root div[style*="aspect-ratio: 4 / 3"] { height: calc((100vw - 40px) * 0.75) !important; padding-top: 0 !important; }
+      #dc-root div[style*="aspect-ratio: 1"] { height: calc(100vw - 40px) !important; padding-top: 0 !important; }
     }
   </style>
 </helmet>
