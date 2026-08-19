@@ -171,9 +171,25 @@
 
   function load() {
     if (loadP) return loadP;
+    // Inline seed baked into the page (window.__imageSlotsState or a
+    // <script id="image-slots-state" type="application/json"> block). Used
+    // as the base beneath the fetched sidecar so crops survive on static
+    // hosts (e.g. Vercel) where the sidecar fetch may 404 / be cached / be
+    // rerouted. The live sidecar still wins wherever the fetch succeeds.
+    let seed = null;
+    try {
+      if (window.__imageSlotsState && typeof window.__imageSlotsState === 'object') {
+        seed = window.__imageSlotsState;
+      } else {
+        const el = document.getElementById('image-slots-state');
+        if (el) seed = JSON.parse(el.textContent || '{}');
+      }
+    } catch { seed = null; }
     loadP = fetch(STATE_FILE)
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => {
+        // Fold the inline seed in beneath the fetched sidecar.
+        j = Object.assign({}, seed, (j && typeof j === 'object') ? j : null);
         // Merge: sidecar loses to any in-memory change that raced ahead of
         // the fetch (drop or clear) so neither is clobbered by hydration.
         if (j && typeof j === 'object') {
