@@ -26,6 +26,11 @@
     a:hover { color: var(--poi-sky-dark); }
     ::selection { background: var(--poi-sky); color: var(--poi-ink); }
     html, body { overflow-x: hidden; max-width: 100%; }
+    /* iOS Safari does not treat an aspect-ratio-derived height as definite for a
+       percentage-height child, so image-slots grew to natural image height on
+       mobile. Fill the ratio box via absolute positioning (reliable on iOS). */
+    #dc-root div[style*="aspect-ratio"] { position: relative; }
+    #dc-root div[style*="aspect-ratio"] > image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
     .hamburger { display: none; }
     @media (min-width: 861px) { .mobile-menu { display: none !important; } }
     @media (max-width: 860px) {
