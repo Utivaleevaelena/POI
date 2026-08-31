@@ -79,7 +79,7 @@
   <header data-screen-label="Nagłówek" style="position: sticky; top: 0; z-index: 50; background: var(--poi-oyster); border-bottom: 1px solid var(--poi-hairline); display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 32px; flex-wrap: wrap;">
     <div onClick="{{ nav.home }}" style="cursor: pointer; display: flex; align-items: center; gap: 20px;">
       <x-import component-from-global-scope="POIDesignSystem_c9274b.Logo" tone="dark" height="{{ logoH }}" src="assets/poi-logo.png" hint-size="90px,26px"></x-import>
-      <div class="hide-mobile" style="font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--poi-ink-60); line-height: 1.5; border-left: 1px solid var(--poi-hairline); padding-left: 20px;">zdroje uliczne<br>projektowane w Polsce</div>
+      <div class="hide-mobile" style="font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--poi-ink-60); line-height: 1.5; border-left: 1px solid var(--poi-hairline); padding-left: 20px;">zdroje uliczne<br>Poidełka miejskie</div>
     </div>
     <button class="hamburger" onClick="{{ toggleMenu }}" aria-label="Menu" style="display: none; align-items: center; justify-content: center; flex-direction: column; gap: 5px; width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; padding: 0;">
       <span style="display: block; width: 20px; height: 2px; background: var(--poi-ink);"></span>
@@ -162,52 +162,12 @@
         </div>
       </section>
 
-      <!-- Mapa strony (jak na schemacie) -->
+      <!-- Pasek social -->
       <section style="background: var(--poi-oyster); border-bottom: 1px solid var(--poi-hairline);">
-        <div style="max-width: 1360px; margin: 0 auto; padding: 56px 48px 64px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 40px;">
-          <a href="{{ href.home }}" onClick="{{ nav.home }}" aria-label="POI — strona główna" style="display: block;">
-            <x-import component-from-global-scope="POIDesignSystem_c9274b.Logo" tone="dark" height="{{ logoHMap }}" src="assets/poi-logo.png" hint-size="180px,52px"></x-import>
-          </a>
-          <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 28px;">
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <a href="{{ href.produkty }}" onClick="{{ nav.produkty }}" style="align-self: flex-start; background: var(--poi-storm); padding: 8px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--poi-ink); text-decoration: none; transition: background 200ms;" style-hover="background: var(--poi-sky)">Poidełka</a>
-          <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6; color: var(--poi-ink-60);">
-            <span>dostępne modele</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <a href="{{ href.realizacje }}" onClick="{{ nav.realizacje }}" style="align-self: flex-start; background: var(--poi-storm); padding: 8px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--poi-ink); text-decoration: none; transition: background 200ms;" style-hover="background: var(--poi-sky)">Realizacje</a>
-          <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6; color: var(--poi-ink-60);">
-            <span>galeria</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <a href="{{ href.nagrody }}" onClick="{{ nav.nagrody }}" style="align-self: flex-start; background: var(--poi-storm); padding: 8px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--poi-ink); text-decoration: none; transition: background 200ms;" style-hover="background: var(--poi-sky)">Nagrody</a>
-          <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6; color: var(--poi-ink-60);">
-            <span>lista nagród i publikacji</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <a href="{{ href.home }}" onClick="{{ nav.home }}" style="align-self: flex-start; background: var(--poi-storm); padding: 8px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--poi-ink); text-decoration: none; transition: background 200ms;" style-hover="background: var(--poi-sky)">O nas</a>
-          <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6; color: var(--poi-ink-60);">
-            <span>posty / blog</span>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <a href="{{ href.kontakt }}" onClick="{{ nav.kontakt }}" style="align-self: flex-start; background: var(--poi-storm); padding: 8px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--poi-ink); text-decoration: none; transition: background 200ms;" style-hover="background: var(--poi-sky)">Kontakt</a>
-          <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6; color: var(--poi-ink-60);">
-            <a href="mailto:poi@poi.eco" style="text-decoration: none;">poi@poi.eco</a>
-            <a href="mailto:michal@podgorczyk.pl" style="text-decoration: none;">michal@podgorczyk.pl</a>
-            <a href="tel:+48604875443" style="text-decoration: none;">604 875 443</a>
-            <span>Adres — Trójmiasto</span>
-          </div>
-        </div>
-          </div>
-          <div style="width: 100%; display: flex; gap: 24px; flex-wrap: wrap; border-top: 1px solid var(--poi-hairline); padding-top: 28px; font-size: 13px;">
-            <a href="https://www.instagram.com/poi.eco/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">POI na Instagramie ↗</a>
-            <a href="https://www.facebook.com/poi.eco" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">POI na Facebooku ↗</a>
-            <a href="https://pin.it/5wsG0SeBr" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">POI na Pinterest ↗</a>
-          </div>
+        <div style="max-width: 1360px; margin: 0 auto; padding: 28px 48px; box-sizing: border-box; display: flex; gap: 28px; flex-wrap: wrap; font-size: 13px;">
+          <a href="https://www.instagram.com/poi.eco/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">POI na Instagramie ↗</a>
+          <a href="https://www.facebook.com/poi.eco" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">POI na Facebooku ↗</a>
+          <a href="https://pin.it/5wsG0SeBr" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">POI na Pinterest ↗</a>
         </div>
       </section>
 
@@ -298,38 +258,6 @@
             <h3 style="margin: 0 0 8px; font-family: var(--font-display); font-weight: 500; font-size: 21px;">Przestrzenie komercyjne</h3>
             <p style="margin: 0; font-size: 13px; line-height: 1.6; color: var(--poi-ink-60);">Centra handlowe, pasaże, dziedzińce i strefy rekreacyjne wokół obiektów.</p>
           </div>
-        </div>
-      </section>
-
-      <!-- Realizacje preview -->
-      <section style="background: var(--poi-white);">
-        <div style="max-width: 1360px; margin: 0 auto; padding: 96px 48px; box-sizing: border-box;">
-          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 48px; flex-wrap: wrap;">
-            <h2 style="margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(30px, 3vw, 44px); line-height: 1.1;">Galerie</h2>
-            <x-import component-from-global-scope="POIDesignSystem_c9274b.Button" variant="ghost" onClick="{{ nav.realizacje }}" hint-size="220px,40px">Cała galeria →</x-import>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-            <div style="aspect-ratio: 4 / 3;"><image-slot id="home-real-1" src="uploads/639825328_18560288098042614_361084651377491372_n.jpg" shape="rect" placeholder="Miejsce na zdjęcie realizacji"></image-slot></div>
-            <div style="aspect-ratio: 4 / 3;"><image-slot id="home-real-2" src="uploads/632566894_18435372844114822_6354521745508734611_n.jpg" shape="rect" placeholder="Miejsce na zdjęcie realizacji"></image-slot></div>
-            <div style="aspect-ratio: 4 / 3;"><image-slot id="home-real-3" src="uploads/628363149_18362998351163347_8673357989629842824_n.jpg" shape="rect" placeholder="Miejsce na detal materiału"></image-slot></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Dla architektów band -->
-      <section style="background: var(--poi-ink); padding: 88px 48px;">
-        <div style="max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;">
-          <div style="display: flex; flex-direction: column; gap: 18px;">
-            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(242,234,220,0.6);">do pobrania</div>
-            <h2 style="margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(28px, 2.8vw, 42px); line-height: 1.12; color: var(--poi-oyster); max-width: 26ch;">Karty katalogowe, rysunki techniczne, modele 3D, DWG i&nbsp;BIM — gotowe do wpięcia w&nbsp;projekt.</h2>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;">
-              <x-import component-from-global-scope="POIDesignSystem_c9274b.Badge" tone="cream" hint-size="auto,24px">PDF</x-import>
-              <x-import component-from-global-scope="POIDesignSystem_c9274b.Badge" tone="cream" hint-size="auto,24px">DWG</x-import>
-              <x-import component-from-global-scope="POIDesignSystem_c9274b.Badge" tone="cream" hint-size="auto,24px">3D / STEP</x-import>
-              <x-import component-from-global-scope="POIDesignSystem_c9274b.Badge" tone="cream" hint-size="auto,24px">BIM</x-import>
-            </div>
-          </div>
-          <x-import component-from-global-scope="POIDesignSystem_c9274b.Button" variant="primary" tone="dark" size="lg" onClick="{{ nav.architekci }}" hint-size="220px,48px">Przejdź do plików</x-import>
         </div>
       </section>
 
@@ -481,11 +409,7 @@
         <sc-for list="{{ realizacje }}" as="r" hint-placeholder-count="6">
           <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
             <div style="aspect-ratio: 4 / 3;"><image-slot id="{{ r.slotId }}" src="{{ r.src }}" shape="rect" placeholder="{{ r.placeholder }}"></image-slot></div>
-            <figcaption style="display: flex; flex-direction: column; gap: 4px;">
-              <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--poi-ink-60);">{{ r.tag }}</div>
-              <div style="font-family: var(--font-display); font-size: 19px;">{{ r.title }}</div>
-              <div style="font-size: 13px; color: var(--poi-ink-60);">{{ r.meta }}</div>
-            </figcaption>
+            <figcaption style="font-family: var(--font-display); font-size: 19px;">{{ r.model }}</figcaption>
           </figure>
         </sc-for>
       </div>
@@ -751,7 +675,25 @@ class Component extends DCLogic {
 
   renderVals() {
     const s = this.state;
-    const u = (name) => 'uploads/' + encodeURI(name);
+    // Tylko pliki faktycznie obecne w uploads/ — brakujące zdjęcia zastępujemy
+    // dostępnym kadrem, żeby nigdzie nie było pustego miejsca po obrazku.
+    const HAVE = [
+      '380423210_18104076322340202_6923263824848569907_n.jpg',
+      '628363149_18362998351163347_8673357989629842824_n.jpg',
+      '632566894_18435372844114822_6354521745508734611_n.jpg',
+      '639825328_18560288098042614_361084651377491372_n.jpg',
+      '641362540_18564611683014889_4633329550614086085_n.jpg',
+      'acc_cap_bukova.jpg', 'acc_cap_chelminek.jpg', 'acc_cap_park.jpg',
+      'acc_herb_crown.jpg', 'acc_herb_swan.jpg', 'acc_sitko_poi.jpg',
+      'award_dobry_wzor_2019.jpg', 'award_eco_design_2014.jpg', 'award_green_product_2019.jpg',
+    ];
+    const HAVE_SET = new Set(HAVE);
+    const POOL = HAVE.slice(0, 5);
+    let poolI = 0;
+    const u = (name) => {
+      const ok = HAVE_SET.has(name) ? name : POOL[poolI++ % POOL.length];
+      return 'uploads/' + encodeURI(ok);
+    };
     const go = (p) => (e) => { e && e.preventDefault && e.preventDefault(); this.go(p); };
     const nav = {
       home: go('home'), produkty: go('produkty'), realizacje: go('realizacje'),
@@ -864,25 +806,26 @@ class Component extends DCLogic {
       color: activePage === page ? 'var(--poi-ink)' : 'var(--poi-ink-80)',
     }));
     const R = [
-      { slotId: 'real-1', tag: 'w użyciu', title: 'Zdrój stożkowy w parku', meta: 'wydarzenie miejskie · lato', file: '639825328_18560288098042614_361084651377491372_n.jpg' },
-      { slotId: 'real-2', tag: 'Gdańsk', title: 'Teatr Szekspirowski', meta: 'zdrój stożkowy · stal nierdzewna', file: '632566894_18435372844114822_6354521745508734611_n.jpg' },
-      { slotId: 'real-3', tag: 'park miejski', title: 'Model urnowy przy placu zabaw', meta: 'beton architektoniczny', file: '628359076_18328490041218769_5909002930288963228_n.jpg' },
-      { slotId: 'real-4', tag: 'skatepark', title: 'Zdrój urnowy w skateparku', meta: 'przestrzeń sportowa', file: '628363149_18362998351163347_8673357989629842824_n.jpg' },
-      { slotId: 'real-5', tag: 'deptak', title: 'Zdrój stożkowy na bruku', meta: 'przestrzeń pieszo-rowerowa', file: '641362540_18564611683014889_4633329550614086085_n.jpg' },
-      { slotId: 'real-6', tag: 'Park Wolności', title: 'Zdrój stożkowy z betonu', meta: 'personalizacja: grawer PARK WOLNOŚCI', file: '633938092_18437817346129293_4933594506703199564_n.jpg' },
-      { slotId: 'real-7', tag: 'detal', title: 'Misa i zawór', meta: 'stal nierdzewna szczotkowana', file: 'photo_2026-07-19_22.14.56.jpeg' },
-      { slotId: 'real-8', tag: 'detal', title: 'Grawer i oznaczenie', meta: 'personalizacja inwestora', file: 'photo_2026-07-19_22.15.03.jpeg' },
-      { slotId: 'real-9', tag: 'detal', title: 'Sitko z grawerem www.poi.eco', meta: 'stal · detal wykończenia', file: '624620014_18253748518290632_1149622529797155668_n.jpg' },
-      { slotId: 'real-10', tag: 'dworzec', title: 'Zdrój kolumnowy na peronie', meta: 'przestrzeń transportowa · kolor wg brandingu', file: '2026-07-19_22.56.48.jpg' },
-      { slotId: 'real-11', tag: 'na zamówienie', title: 'Zdrój z misą w bryle kamiennej', meta: 'wizualizacja realizacji indywidualnej', file: '628048193_18434253121112637_6196284597306970845_n.jpg' },
-      { slotId: 'real-12', tag: 'na zamówienie', title: 'Wariant kamień + mosiądz', meta: 'wizualizacja · przestrzeń komercyjna', file: '631139177_18374883061093857_1513930524755961561_n.jpg' },
-      { slotId: 'real-13', tag: 'plac miejski', title: 'POI_01 przy zabytkowej hali', meta: 'zdrój stożkowy · stal · bruk', file: '482118084_18160438882340202_6068658284668607152_n.jpg' },
-      { slotId: 'real-14', tag: 'skatepark', title: 'Chełminek Skatepark', meta: 'personalizacja: grawer obiektu', file: '624854412_18085145416932933_1078147355455479145_n.jpg' },
-      { slotId: 'real-15', tag: 'plac zabaw', title: 'Realizacja BUKOVA', meta: 'beton · personalizacja logotypem', file: '621256615_18113265355624771_8106033751728606472_n.jpg' },
-      { slotId: 'real-16', tag: 'detal', title: 'Grawer herbowy — łabędź', meta: 'personalizacja indywidualna', file: '619846782_18065383619235825_3559258375164632481_n.jpg' },
-      { slotId: 'real-17', tag: 'ekspozycja', title: 'Wariant kolorystyczny', meta: 'lakier · wykończenie premium', file: '621402779_18159187609415407_2794021324052187018_n.jpg' },
+      { slotId: 'real-1', model: 'POI_01', tag: 'w użyciu', title: 'Zdrój stożkowy w parku', meta: 'wydarzenie miejskie · lato', file: '639825328_18560288098042614_361084651377491372_n.jpg' },
+      { slotId: 'real-2', model: 'POI_01', tag: 'Gdańsk', title: 'Teatr Szekspirowski', meta: 'zdrój stożkowy · stal nierdzewna', file: '632566894_18435372844114822_6354521745508734611_n.jpg' },
+      { slotId: 'real-3', model: 'POI_02', tag: 'park miejski', title: 'Model urnowy przy placu zabaw', meta: 'beton architektoniczny', file: '628359076_18328490041218769_5909002930288963228_n.jpg' },
+      { slotId: 'real-4', model: 'POI_02', tag: 'skatepark', title: 'Zdrój urnowy w skateparku', meta: 'przestrzeń sportowa', file: '628363149_18362998351163347_8673357989629842824_n.jpg' },
+      { slotId: 'real-5', model: 'POI_01', tag: 'deptak', title: 'Zdrój stożkowy na bruku', meta: 'przestrzeń pieszo-rowerowa', file: '641362540_18564611683014889_4633329550614086085_n.jpg' },
+      { slotId: 'real-6', model: 'POI_01', tag: 'Park Wolności', title: 'Zdrój stożkowy z betonu', meta: 'personalizacja: grawer PARK WOLNOŚCI', file: '633938092_18437817346129293_4933594506703199564_n.jpg' },
+      { slotId: 'real-7', model: 'POI_01', tag: 'detal', title: 'Misa i zawór', meta: 'stal nierdzewna szczotkowana', file: 'photo_2026-07-19_22.14.56.jpeg' },
+      { slotId: 'real-8', model: 'POI_01', tag: 'detal', title: 'Grawer i oznaczenie', meta: 'personalizacja inwestora', file: 'photo_2026-07-19_22.15.03.jpeg' },
+      { slotId: 'real-9', model: 'POI_01', tag: 'detal', title: 'Sitko z grawerem www.poi.eco', meta: 'stal · detal wykończenia', file: '624620014_18253748518290632_1149622529797155668_n.jpg' },
+      { slotId: 'real-10', model: 'POI_03', tag: 'dworzec', title: 'Zdrój kolumnowy na peronie', meta: 'przestrzeń transportowa · kolor wg brandingu', file: '2026-07-19_22.56.48.jpg' },
+      { slotId: 'real-11', model: 'POI_03', tag: 'na zamówienie', title: 'Zdrój z misą w bryle kamiennej', meta: 'wizualizacja realizacji indywidualnej', file: '628048193_18434253121112637_6196284597306970845_n.jpg' },
+      { slotId: 'real-12', model: 'POI_03', tag: 'na zamówienie', title: 'Wariant kamień + mosiądz', meta: 'wizualizacja · przestrzeń komercyjna', file: '631139177_18374883061093857_1513930524755961561_n.jpg' },
+      { slotId: 'real-13', model: 'POI_01', tag: 'plac miejski', title: 'POI_01 przy zabytkowej hali', meta: 'zdrój stożkowy · stal · bruk', file: '482118084_18160438882340202_6068658284668607152_n.jpg' },
+      { slotId: 'real-14', model: 'POI_02', tag: 'skatepark', title: 'Chełminek Skatepark', meta: 'personalizacja: grawer obiektu', file: '624854412_18085145416932933_1078147355455479145_n.jpg' },
+      { slotId: 'real-15', model: 'POI_02', tag: 'plac zabaw', title: 'Realizacja BUKOVA', meta: 'beton · personalizacja logotypem', file: '621256615_18113265355624771_8106033751728606472_n.jpg' },
+      { slotId: 'real-16', model: 'POI_01', tag: 'detal', title: 'Grawer herbowy — łabędź', meta: 'personalizacja indywidualna', file: '619846782_18065383619235825_3559258375164632481_n.jpg' },
+      { slotId: 'real-17', model: 'POI_03', tag: 'ekspozycja', title: 'Wariant kolorystyczny', meta: 'lakier · wykończenie premium', file: '621402779_18159187609415407_2794021324052187018_n.jpg' },
     ];
-    const realizacje = R.map((r) => ({ ...r, src: u(r.file), placeholder: 'Miejsce na zdjęcie realizacji' }));
+    const realizacje = R.filter((r) => HAVE_SET.has(r.file))
+      .map((r) => ({ ...r, src: u(r.file), placeholder: 'Miejsce na zdjęcie realizacji' }));
     return {
       nav, navItems, mobileNav, href, products: PRODUCTS, current, realizacje,
       logoH: 26, logoHFooter: 28, logoHMap: 52,
