@@ -82,6 +82,7 @@
       #dc-root .why .num { font-size: 36px !important; }
       #dc-root .why h3 { font-size: 19px !important; }
       #dc-root .acc figcaption { font-size: 13px !important; }
+      #dc-root .prod-grid { grid-template-columns: minmax(0, 1fr) !important; grid-template-rows: none !important; }
       #dc-root .prod-grid { grid-template-areas: "main" "info" "thumbs" !important; row-gap: 28px !important; }
       #dc-root .perso section { flex-direction: column; }
       #dc-root .perso section > div { flex: none !important; width: 100% !important; box-sizing: border-box; }
@@ -1082,6 +1083,9 @@ class Component extends DCLogic {
       sand: '380423210_18104076322340202_6923263824848569907_n.jpg',
       urn: '628363149_18362998351163347_8673357989629842824_n.jpg',
       travertine: '639825328_18560288098042614_361084651377491372_n.jpg',
+      poi03front: '2026-07-19_22.56.17.jpg',
+      poi03bowl: '2026-07-19_22.55.50.jpg',
+      poi03station: '2026-07-19_22.56.48.jpg',
     };
 
     const PRODUCTS = [
@@ -1142,7 +1146,7 @@ class Component extends DCLogic {
           { key: 'Wariant A', name: 'POI_03 — wariant A', img: null, body: '[DO UZUPEŁNIENIA] Opis wariantu kolorystycznego.', use: '[DO UZUPEŁNIENIA]' },
           { key: 'Wariant B', name: 'POI_03 — wariant B', img: null, body: '[DO UZUPEŁNIENIA] Opis wariantu kolorystycznego.', use: '[DO UZUPEŁNIENIA]' },
         ],
-        card: null, main: null, photos: [],
+        card: IMG.poi03front, main: IMG.poi03front, photos: [IMG.poi03front, IMG.poi03bowl, IMG.poi03station],
         specs: [
           { k: 'wymiary (przykładowe)', v: 'wys. 1350 mm · podstawa 380 × 380 mm' },
           { k: 'materiały', v: 'korpus: stal lakierowana proszkowo; misa: stal nierdzewna AISI 316' },
