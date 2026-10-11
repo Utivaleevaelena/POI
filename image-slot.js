@@ -1087,7 +1087,9 @@
       // (Claude wrote it into the HTML) so it passes through unchanged.
       let stored = this.id ? getSlot(this.id) : this._local;
       if (stored && stored.u && !/^data:image\//i.test(stored.u)) stored = null;
-      const srcAttr = this.getAttribute('src') || '';
+      // Unrendered template holes ("{{ x }}") must never hit the network.
+      const rawSrc = this.getAttribute('src') || '';
+      const srcAttr = rawSrc.indexOf('{{') !== -1 ? '' : rawSrc;
       this._userUrl = (stored && stored.u) || null;
       const url = this._userUrl || srcAttr;
       // Don't clobber an in-flight reframe with a store-triggered re-render.
