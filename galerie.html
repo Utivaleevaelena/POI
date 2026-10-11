@@ -83,10 +83,12 @@
       #dc-root .why h3 { font-size: 19px !important; }
       #dc-root .acc figcaption { font-size: 13px !important; }
       #dc-root .prod-grid { grid-template-areas: "main" "info" "thumbs" !important; row-gap: 28px !important; }
-      #dc-root .perso > section { flex-direction: column; }
-      #dc-root .perso > section > div { flex: none !important; width: 100% !important; }
-      #dc-root .perso > section > div:first-child { padding: 44px var(--page-gutter) !important; }
-      #dc-root .perso > section > div:last-child { min-height: 0 !important; aspect-ratio: 4 / 3; }
+      #dc-root .perso section { flex-direction: column; }
+      #dc-root .perso section > div { flex: none !important; width: 100% !important; box-sizing: border-box; }
+      #dc-root .perso section > div:first-child { padding: 44px var(--page-gutter) !important; }
+      #dc-root .perso section > div:last-child { min-height: 0 !important; height: calc((100vw) * 0.75) !important; }
+      #dc-root .hero-track { gap: 10px; --hero-step: calc(84% + 10px); }
+      #dc-root .hero-track > .hero-slide { flex: 0 0 84% !important; min-width: 0; overflow: hidden; }
       #dc-root h1 { font-size: 32px !important; line-height: 1.12 !important; }
       #dc-root h2 { font-size: 26px !important; }
       #dc-root .spec-row { grid-template-columns: minmax(0, 1fr) !important; gap: 4px !important; }
@@ -169,12 +171,12 @@
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
     <div data-screen-label="Strona główna">
 
-      <section aria-label="Galeria realizacji" style="position: relative; background: var(--poi-ink); overflow: hidden;">
-        <div style="display: flex; height: clamp(360px, 58vh, 640px); transition: transform 900ms cubic-bezier(0.22,0.61,0.36,1); transform: {{ heroTransform }};">
-          <div style="flex: 0 0 100%; height: 100%;"><image-slot id="hero-produkt" shape="rect" src="/uploads/380423210_18104076322340202_6923263824848569907_n.jpg" placeholder="Miejsce na zdjęcie zdroju"></image-slot></div>
-          <div style="flex: 0 0 100%; height: 100%;"><image-slot id="hero-slide-2" shape="rect" src="/uploads/639825328_18560288098042614_361084651377491372_n.jpg" placeholder="Miejsce na zdjęcie realizacji"></image-slot></div>
-          <div style="flex: 0 0 100%; height: 100%;"><image-slot id="hero-slide-3" shape="rect" src="/uploads/632566894_18435372844114822_6354521745508734611_n.jpg" placeholder="Miejsce na zdjęcie realizacji"></image-slot></div>
-          <div style="flex: 0 0 100%; height: 100%;"><image-slot id="hero-slide-4" shape="rect" src="/uploads/641362540_18564611683014889_4633329550614086085_n.jpg" placeholder="Miejsce na zdjęcie realizacji"></image-slot></div>
+      <section aria-label="Galeria realizacji" onTouchStart="{{ heroTouchStart }}" onTouchEnd="{{ heroTouchEnd }}" style="position: relative; background: var(--poi-ink); overflow: hidden;">
+        <div class="hero-track" style="display: flex; height: clamp(360px, 58vh, 640px); transition: transform 900ms cubic-bezier(0.22,0.61,0.36,1); transform: {{ heroTransform }};">
+          <div class="hero-slide" style="flex: 0 0 100%; height: 100%;"><image-slot id="hero-produkt" shape="rect" src="/uploads/380423210_18104076322340202_6923263824848569907_n.jpg" placeholder="Miejsce na zdjęcie zdroju"></image-slot></div>
+          <div class="hero-slide" style="flex: 0 0 100%; height: 100%;"><image-slot id="hero-slide-2" shape="rect" src="/uploads/639825328_18560288098042614_361084651377491372_n.jpg" placeholder="Miejsce na zdjęcie realizacji"></image-slot></div>
+          <div class="hero-slide" style="flex: 0 0 100%; height: 100%;"><image-slot id="hero-slide-3" shape="rect" src="/uploads/632566894_18435372844114822_6354521745508734611_n.jpg" placeholder="Miejsce na zdjęcie realizacji"></image-slot></div>
+          <div class="hero-slide" style="flex: 0 0 100%; height: 100%;"><image-slot id="hero-slide-4" shape="rect" src="/uploads/641362540_18564611683014889_4633329550614086085_n.jpg" placeholder="Miejsce na zdjęcie realizacji"></image-slot></div>
         </div>
         <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(30,31,29,0.34) 0%, rgba(30,31,29,0) 28%, rgba(30,31,29,0.32) 52%, rgba(30,31,29,0.92) 100%), linear-gradient(90deg, rgba(30,31,29,0.58) 0%, rgba(30,31,29,0.18) 52%, rgba(30,31,29,0) 100%);"></div>
         <div style="position: absolute; left: 0; right: 0; bottom: 0;">
@@ -1272,7 +1274,14 @@ class Component extends DCLogic {
       logoH: 34, logoHFooter: 36,
       persoImg: U(IMG.urn),
       year: new Date().getFullYear(),
-      heroTransform: 'translateX(-' + (s.heroSlide || 0) * 100 + '%)',
+      heroTransform: 'translateX(calc(var(--hero-step, 100%) * -' + (s.heroSlide || 0) + '))',
+      heroTouchStart: (e) => { const t = e.touches && e.touches[0]; this._hx = t ? t.clientX : null; },
+      heroTouchEnd: (e) => {
+        const t = e.changedTouches && e.changedTouches[0];
+        if (this._hx == null || !t) return;
+        const dx = t.clientX - this._hx; this._hx = null;
+        if (Math.abs(dx) > 40) this.setState((st) => ({ heroSlide: Math.max(0, Math.min(3, (st.heroSlide || 0) + (dx < 0 ? 1 : -1))) }));
+      },
       heroDots: [0, 1, 2, 3].map((i) => ({
         label: 'Slajd ' + (i + 1), pressed: (s.heroSlide || 0) === i ? 'true' : 'false',
         on: () => this.setState({ heroSlide: i }),
